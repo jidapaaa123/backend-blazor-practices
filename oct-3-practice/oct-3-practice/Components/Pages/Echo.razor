@@ -1,0 +1,8 @@
+﻿@page "/echo/{ExampleParam}"
+<h3>This is page:</h3>
+<p>@ExampleParam</p>
+
+@code {
+    [Parameter]
+    public string ExampleParam { get; set; }
+}
