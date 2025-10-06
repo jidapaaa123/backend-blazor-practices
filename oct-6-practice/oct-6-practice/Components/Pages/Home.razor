@@ -1,4 +1,5 @@
 ﻿@page "/"
+@inject ILogger<Home> logger
 
 <PageTitle>Home</PageTitle>
 
@@ -6,8 +7,21 @@
 
 Welcome to your new app.
 
+@* Parameer-binding to Components *@
+<Counter StartingValue="5"></Counter>
+<Counter StartingValue="2" IncrementValue="10"></Counter>
 
-Calculate the square of this number...
+@* Event Handling of Button *@
+<p>Click the button to add a new starship</p>
+<button @onclick=addStarship>Add Starship</button>
+
+@for(int i =0; i<starshipCount; i++)
+{
+    <StarshipDemo></StarshipDemo>
+}
+
+
+<p>Calculate the square of this number...</p>
 <p><input @bind="@number" @bind:event="oninput"/></p>
 <Square param_int="@number" />
 
@@ -22,6 +36,13 @@ Calculate the square of this number...
     async Task HandleExampleEvent()
     {
         result = $"Event has been used {++count} times";
+    }
+
+    int starshipCount = 0;
+    void addStarship()
+    {
+        starshipCount++;
+        logger.LogInformation("Button clicked!");
     }
 
 }
