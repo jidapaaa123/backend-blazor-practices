@@ -1,0 +1,10 @@
+﻿@page "/square"
+<PageTitle>Square</PageTitle>
+
+<h3>Square</h3>
+<p>The square of @param_int is @(param_int*param_int)</p>
+
+@code {
+    [Parameter]
+    public int param_int { get; set; } = 0;
+}

@@ -1,0 +1,27 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+
+Calculate the square of this number...
+<p><input @bind="@number" @bind:event="oninput"/></p>
+<Square param_int="@number" />
+
+<p><UseEvent ExampleEvent="@HandleExampleEvent"></UseEvent></p>
+<p>@result</p>
+
+@code {
+    int number { get; set; }
+
+    string result;
+    int count = 0;
+    async Task HandleExampleEvent()
+    {
+        result = $"Event has been used {++count} times";
+    }
+
+}

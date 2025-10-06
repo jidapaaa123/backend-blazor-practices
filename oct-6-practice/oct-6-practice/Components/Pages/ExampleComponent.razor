@@ -1,0 +1,7 @@
+﻿<button @onclick="@(() => { ExampleValueChanged.InvokeAsync("test value"); })">Add value</button>
+@code {
+    [Parameter]
+    public EventCallback<string> ExampleValueChanged { get; set; }
+    [Parameter]
+    public string ExampleValue { get; set; }
+}

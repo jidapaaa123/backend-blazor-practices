@@ -1,0 +1,10 @@
+﻿<button @onclick="@UseExampleEvent">Try it!</button>
+@code {
+    [Parameter]
+    public EventCallback ExampleEvent { get; set; }
+
+    async Task UseExampleEvent()
+    {
+        await ExampleEvent.InvokeAsync();
+    }
+}
